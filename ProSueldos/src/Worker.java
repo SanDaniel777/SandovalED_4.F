@@ -26,7 +26,7 @@ public class Worker{
     public void setNombre(String newNombre) {
         this.nombre = newNombre;
     }
-    public void setSueldo(int newSueldo) {
+    public void setSueldo(double newSueldo) {
         this.sueldo = newSueldo;
     }
 
