@@ -21,6 +21,16 @@ public class App {
          SalarioTotal= SalarioTotal/workers.size();
         System.out.println("Promedio de salario: " +SalarioTotal);
 
-        
+        for(int i = workers.size() - 1; i >= 0; i--){
+            if (workers.get(i).getSueldo() < 1000) {
+                workers.remove(i);
+            }
+        }
+        System.out.println("\nLista actualizada:");
+        for (Worker worker : workers) {
+            System.out.println("ID: " + worker.getId() +
+                               ", Nombre: " + worker.getNombre() +
+                               ", Sueldo: " + worker.getSueldo());
     }
+}
 }
