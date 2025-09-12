@@ -16,6 +16,7 @@ public class App {
         System.out.println("Quitamos la pagina: " +webs.pop());
         System.out.println("Estamos actualmente en el elemento: " +webs.peek());
 
-
+        webs.push("Nueva pagina Web");
+        System.out.println("Stack ahorita:" + webs);
     }
 }
