@@ -14,7 +14,7 @@ public class App {
         System.out.println("Stack ahorita:" + webs);
 
         System.out.println("Quitamos la pagina: " +webs.pop());
-
+        System.out.println("Estamos actualmente en el elemento: " +webs.peek());
 
 
     }
