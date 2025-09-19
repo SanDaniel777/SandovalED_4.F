@@ -5,10 +5,10 @@ public class App {
         Scanner sc = new Scanner(System.in);
         System.out.println("Hola kevin, Agrega el numero que quieras sumar");
 
+        
         int n = sc.nextInt();
         int resultado = suma(n);
-        
-
+        System.out.println("La suma de los primeros " +n+ "naturales es:" +resultado);
         sc.close();
     }
 
