@@ -5,7 +5,7 @@ public class App {
              
             System.out.println(" los primeros numeros de la serie fibonacci " +n+ " son:");
             for(int i = 0; i < n; i++){
-                System.out.println("Fibo:" +i+ + fibonacci(i));
+                System.out.println("Fibo:" +fibonacci(i));
             }
         
         
