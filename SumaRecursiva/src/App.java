@@ -7,14 +7,15 @@ public class App {
 
         int n = sc.nextInt();
         int resultado = suma(n);
-
+        
 
         sc.close();
     }
 
-    static void main(){
-        
+    static int suma(int n){
+        if (n == 0) {
+            return 0;
+        }
+        return n + suma(n-1);
     }
-
-
 }
