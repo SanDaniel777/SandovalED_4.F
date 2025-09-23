@@ -28,9 +28,8 @@ public class App {
             Cliente clienteActual =fila.poll();
             System.out.println("Atendiendo al cliente: "+clienteActual.nombre);
             clienteActual.atender();
-        }
 
-         System.out.print("Cola restante: [");
+             System.out.print("Cola restante: [");
             boolean primero = true;
             for (Cliente c : fila) {
                 if (!primero) System.out.print(", ");
@@ -38,6 +37,9 @@ public class App {
                 primero = false;
             }
             System.out.println("]");
+        }
+
+        
 
 
     }
