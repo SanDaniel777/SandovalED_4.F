@@ -4,7 +4,7 @@ import java.util.List;
 public class ListaMaterias {
 private List<String> materias;
 
-public void ListaMaterias(){
+public ListaMaterias(){
     materias = new ArrayList<>();
 }
 
