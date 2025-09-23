@@ -1,37 +1,28 @@
-public class Cliente {
-private int id;
-private String nombre;
-private String documentos;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
-public Cliente(int id, String nombre, String documentos){
+public class Cliente {
+int id;
+String nombre;
+Deque <String> documentos;
+
+public Cliente(int id, String nombre){
     this.id=id;
     this.nombre=nombre;
-    this.documentos=documentos;
+    documentos=new ArrayDeque<>();
 }
 
 public Cliente(){}
 
-public int getId(){
-    return id;
-}
-public String getNombre(){
-    return nombre;
-}
-public String getDocumentos(){
-    return documentos;
+public void agregarDocumentos(String documento){
+documentos.push(documento);
 }
 
-public void setId(int newId){
-    this.id=newId;
+public void atender(){
+    while(!documentos.isEmpty()){
+        System.out.println("Documento retirado: "+documentos.pop());
+    }
 }
-public void setNombre(String newNombre){
-    this.nombre=newNombre;
-}
-public void setDocumentos(String newDocumentos){
-    this.documentos=newDocumentos;
-}
-
-
 
 
 }
