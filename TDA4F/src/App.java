@@ -1,9 +1,9 @@
-//import java.util.ArrayDeque;
-//import java.util.Deque;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
-// public class App {
-//     public static void main(String[] args) throws Exception {
-//         System.out.println("Hello, World!");
+ public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
 
 // //Inicializacion de List
 //     //     List<String> fruits= new ArrayList<>();
@@ -48,21 +48,21 @@
 
 
 // //Inizializacion de QUEUE
-//     // Queue<String> fila = new ArrayDeque();
-//     // //add
-//     // fila.offer("Cliente1");
-//     // fila.offer("Cliente2");
-//     // fila.offer("Cliente2");
-//     // //Recorrido
-//     // for (String f : fila){
-//     //     System.out.println(f);
-//     // }
-//     // System.out.println("Atendiendo al  cliente: " +fila.poll());
+    // Queue<String> fila = new ArrayDeque();
+    // //add
+    // fila.offer("Cliente1");
+    // fila.offer("Cliente2");
+    // fila.offer("Cliente2");
+    // //Recorrido
+    // for (String f : fila){
+    // System.out.println(f);
+    // }
+    // System.out.println("Atendiendo al  cliente: " +fila.poll());
 
-//     // fila.offer("Nuevo Cliente");
-//     // fila.poll();
-//     // System.out.println("Fila:"+ fila);
-//     // System.out.println("Siguiente:" + fila.peek());
+    // fila.offer("Nuevo Cliente");
+    // fila.poll();
+    // System.out.println("Fila:"+ fila);
+    // System.out.println("Siguiente:" + fila.peek());
 
 
 // //Inizilizacion de Deque
@@ -83,5 +83,5 @@
 //     System.out.println("Stack: "+libros);
 
 
-//     }
-// }
+   }
+ }
