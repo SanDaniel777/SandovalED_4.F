@@ -47,11 +47,27 @@ public class App {
             {2,2,2,2,2,2}
         };
         for(int i=0;i<arriBiD.length;i++){
-            for(int j=0;j<arriBiD.length;j++){
+            for(int j=0;j<arriBiD[i].length;j++){
                 System.out.println(arriBiD[i][j]);
             }
             System.out.println();
         }
+        //Copiar un arreglo
+        int[] a = {1,2,3,4};
+        int[] b = new int[4];
+        
+        for(int i =0; i<a.length;i++){
+            b[i]=a[i];
+        }
+        //otros metodos
+        //System.arraycopy(a,0,b,0,4);
+        //int[]c=Array.copyOf(a,5);
+        //System.out.println(Arrays.toString(c));
+
+        System.out.println(Arrays.toString(b));
+
+        System.out.print("---------------------------------------------");
+        System.out.println("Aqui empiezan los ejercicios");
 
     }
 }
