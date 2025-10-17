@@ -13,5 +13,7 @@ public class App {
         lista.remove(2);
         System.out.println("-------------------------");
         lista.printList();
+        lista.contar(5);
+        
     }
 }
