@@ -10,5 +10,9 @@ public class App {
         list.printFoward();
         System.out.println("----------Imprimir pa tras-------");
         list.printBackward();
+        list.remove(5);
+        System.out.println("Lista nueva:");
+        list.printFoward();
+        list.printBackward();
     }
 }

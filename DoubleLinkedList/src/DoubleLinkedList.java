@@ -37,5 +37,37 @@ public void printBackward(){
     System.out.println(current);
 }
 
+public void remove(int data) {
+        if (head == null) {
+            System.out.println("Lista vacía");
+            return;
+        }
 
+        Node current = head;
+        while (current != null && current.data != data) {
+            current = current.next;
+        }
+
+        if (current == null) {
+            System.out.println("Valor no encontrado");
+            return;
+        }
+
+        
+        if (current == head) {//se elimina si el elemento esta al inicio 
+            head = current.next;
+            if (head != null) {
+                head.prev = null;
+            }
+        }
+        
+        else {//se elimina si el elemento esta en otra parte 
+            current.prev.next = current.next;
+            if (current.next != null) {
+                current.next.prev = current.prev;
+            }
+        }
+
+        System.out.println("Nodo con valor " + data + " eliminado correctamente.");
+    }
 }
