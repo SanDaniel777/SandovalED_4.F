@@ -1,4 +1,3 @@
-import javax.swing.Box;
 
 public class App {
 
@@ -10,13 +9,13 @@ public class App {
     }
      public static void main(String[] args) throws Exception {
 
-        Box<String> box1 = new Box<>("Esto es una caja de strings");
+        //Box<String> box1 = new Box<>("Esto es una caja de strings");
         //List<String> lista = new ArrayList<>();
-        Box<Integer> box2 = new Box<>(2);
-        System.out.println(box2.getValue());
+       // Box<Integer> box2 = new Box<>(2);
+        //System.out.println(box2.getValue());
 
          Pair<String, Integer> pair = new Pair<String,Integer>("Id", 3);
-        System.out.println(box1.getValue());
+        //System.out.println(box1.getValue());
 
         System.out.println("La key es: " + pair.getKey());
         System.out.println("Valor: " + pair.getValue());
