@@ -5,6 +5,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         Set<String>set= new HashSet<>();
+                            //TreeSet
+                            //LinkedHashSet
+
         set.add("Rojo");
         set.add("Verde");
         set.add("Azul");
