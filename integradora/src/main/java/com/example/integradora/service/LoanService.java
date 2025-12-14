@@ -14,7 +14,7 @@ import com.example.integradora.structures.SinglyLinkedList;
 @Service
 public class LoanService {
 
-    private final BookService bookService;
+    private final LibraryCatalogService bookService;
     private final UserService userService;
     
     private SinglyLinkedList<Loan> activeLoans = new SinglyLinkedList<>();
@@ -23,7 +23,7 @@ public class LoanService {
     
     private AtomicInteger loanIdCounter = new AtomicInteger(1);
 
-    public LoanService(BookService bookService, UserService userService) {
+    public LoanService(LibraryCatalogService bookService, UserService userService) {
         this.bookService = bookService;
         this.userService = userService;
     }

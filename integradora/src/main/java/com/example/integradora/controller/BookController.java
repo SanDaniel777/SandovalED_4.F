@@ -12,31 +12,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.integradora.dto.BookRequest;
 import com.example.integradora.model.Book;
-import com.example.integradora.service.BookService;
+import com.example.integradora.service.LibraryCatalogService;
 
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
 
-    private final BookService bookService;
+    private final LibraryCatalogService bookService;
 
-    public BookController(BookService bookService) {
+    public BookController(LibraryCatalogService bookService) {
         this.bookService = bookService;
     }
 
     @PostMapping
     public String createBook(@RequestBody BookRequest request) {
-        return bookService.addBook(request);
+        return bookService.registerBook(request);
     }
 
-    @GetMapping
+    @GetMapping("/catalog")
     public Book[] getBooks() {
-        return bookService.getAllBooks();
+        return bookService.fetchCatalog();
     }
 
     @PutMapping("/{id}")
     public String updateBook(@PathVariable int id, @RequestBody BookRequest request) {
-        return bookService.updateBook(id, request);
+        return bookService.modifyBookInfo(id, request);
     }
 
     @PatchMapping("/{id}/status")

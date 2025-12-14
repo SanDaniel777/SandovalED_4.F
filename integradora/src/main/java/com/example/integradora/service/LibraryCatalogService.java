@@ -8,18 +8,19 @@ import com.example.integradora.structures.Node;
 import com.example.integradora.structures.SinglyLinkedList;
 
 @Service
-public class BookService {
+public class LibraryCatalogService {
     private SinglyLinkedList<Book> bookCatalog = new SinglyLinkedList<>();
 
+    //Flujo A bby
     //Se registran los libros
-    public String addBook(BookRequest request) {
+    public String registerBook(BookRequest request) {
         Book newBook = new Book(request.getId(), request.getTitle(), request.getCopies());
         bookCatalog.add(newBook);
-        return "Libro '" + newBook.getTitle() + "' registrado con éxito.";
+        return "Libro '" + newBook.getTitle() + "' registrado con éxito en el servicio.";
     }
 
     // se obtienen los libros 
-    public Book[] getAllBooks() {
+    public Book[] fetchCatalog() {
         int count = 0;
         Node<Book> temp = bookCatalog.head;
         while (temp != null) {
@@ -36,7 +37,7 @@ public class BookService {
         return booksArray;
     }
 
-    public String updateBook(int id, BookRequest request) {
+    public String modifyBookInfo(int id, BookRequest request) {
         Node<Book> current = bookCatalog.head;
         while (current != null) {
             if (current.data.getId() == id) {
@@ -49,20 +50,15 @@ public class BookService {
         return "Error: Libro no encontrado.";
     }
 
+    //baja logica del libro 
     public String toggleBookStatus(int id) {
-        System.out.println("--- INICIANDO PATCH PARA ID: " + id + " ---");
         
         Node<Book> current = bookCatalog.head;
         while (current != null) {
             if (current.data.getId() == id) {
-                System.out.println("Libro encontrado: " + current.data.getTitle());
-                System.out.println("Estado ANTES del cambio: " + current.data.isActivo());
-
-                boolean nuevoEstado = !current.data.isActivo();
-                current.data.setActivo(nuevoEstado);
-                
-                System.out.println("Estado DESPUÉS del cambio: " + current.data.isActivo());
-                System.out.println("----------------------------------------");
+               
+                boolean nuevoEstado = !current.data.isEnabled();
+                current.data.setEnabled(nuevoEstado);
 
                 return "Status actualizado a: " + (nuevoEstado ? "ACTIVO" : "INACTIVO");
             }

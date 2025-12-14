@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.integradora.model.Book;
 import com.example.integradora.model.User;
-import com.example.integradora.service.BookService;
+import com.example.integradora.service.LibraryCatalogService;
 import com.example.integradora.service.UserService;
 
 @RestController
 @RequestMapping("/api/reservations")
 public class ReservationController {
 
-    private final BookService bookService;
+    private final LibraryCatalogService bookService;
     private final UserService userService;
 
-    public ReservationController(BookService bookService, UserService userService) {
+    public ReservationController(LibraryCatalogService bookService, UserService userService) {
         this.bookService = bookService;
         this.userService = userService;
     }

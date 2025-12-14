@@ -7,7 +7,7 @@ public class Book {
     private int id;
     private String title;
     private int availableCopies;
-    private boolean activo; 
+    private boolean enabled; 
     private ArrayQueue<User> waitingList; 
 
     public Book() {
@@ -18,7 +18,7 @@ public class Book {
         this.title = title;
         this.availableCopies = copies;
         this.waitingList = new ArrayQueue<>();
-        this.activo = true;
+        this.enabled = true;
     }
 
     public int getId() {
@@ -45,20 +45,20 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
     public ArrayQueue<User> getWaitingList() {
         return waitingList;
     }
 
     public void setWaitingList(ArrayQueue<User> waitingList) {
         this.waitingList = waitingList;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     
