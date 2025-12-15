@@ -1,6 +1,5 @@
 package com.example.integradora.controller;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,7 +54,7 @@ public class LoanController {
     }
 
     // Deshacer última acción (Undo)
-    @DeleteMapping("/history/undolast")
+    @PostMapping("/history/undolast")
     public String undoLastAction() {
         return loanService.undoLastAction();
     }
