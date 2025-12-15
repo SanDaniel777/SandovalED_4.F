@@ -21,13 +21,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public String createUser(@RequestBody UserRequest request) {
-        System.out.println("RECIBIÓ -> ID: " + request.getId() + ", Name: " + request.getName());
-        return userService.createUser(request);
+        System.out.println( request.getId() + ", Nombre: " + request.getName());
+        return userService.addUser(request);
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public User[] getUsers() {
         return userService.getAllUsers();
     }

@@ -14,7 +14,11 @@ public class LibraryCatalogService {
     //Flujo A bby
     //Se registran los libros
     public String registerBook(BookRequest request) {
-        Book newBook = new Book(request.getId(), request.getTitle(), request.getCopies());
+        Book newBook = new Book(request.getId(), 
+        request.getTitle(),
+        request.getAuthor(),
+        request.getPublisher(), 
+        request.getCopies());
         bookCatalog.add(newBook);
         return "Libro '" + newBook.getTitle() + "' registrado con éxito en el servicio.";
     }
@@ -42,6 +46,8 @@ public class LibraryCatalogService {
         while (current != null) {
             if (current.data.getId() == id) {
                 current.data.setTitle(request.getTitle());
+                current.data.setAuthor(request.getAuthor());
+                current.data.setPublisher(request.getPublisher());
                 current.data.setAvailableCopies(request.getCopies());
                 return "Libro actualizado: " + current.data.getTitle();
             }

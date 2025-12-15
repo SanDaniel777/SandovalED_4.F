@@ -13,7 +13,7 @@ import com.example.integradora.service.LibraryCatalogService;
 import com.example.integradora.service.UserService;
 
 @RestController
-@RequestMapping("/api/reservations")
+@RequestMapping("/api/reservation")
 public class ReservationController {
 
     private final LibraryCatalogService bookService;
@@ -32,7 +32,7 @@ public class ReservationController {
         return book.getWaitingList().toArray();
     }
 
-    //Cancela la reserva (Sacar usuario de la cola)
+    //sacar usuario de la cola
     @DeleteMapping
     public String cancelReservation(@RequestParam int userId, @RequestParam int bookId) {
         Book book = bookService.getBookById(bookId);
@@ -41,11 +41,9 @@ public class ReservationController {
         if (book == null) return "Libro no encontrado";
         if (user == null) return "Usuario no encontrado";
 
-        // Buscamos al usuario en la cola para borrarlo
         Object[] waiting = book.getWaitingList().toArray();
         User targetUserInQueue = null;
         
-        // Buscamos manualmente por ID
         for (Object obj : waiting) {
             if (obj instanceof User) {
                 User u = (User) obj;
@@ -56,9 +54,8 @@ public class ReservationController {
             }
         }
         
-        // Intentamos borrarlo usando el nuevo método remove()
         if (targetUserInQueue != null && book.getWaitingList().remove(targetUserInQueue)) {
-             return "Reserva cancelada para " + user.getName();
+             return "Reserva cancelada";
         }
         
         return "El usuario no se encuentra en la lista de espera.";

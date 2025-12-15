@@ -6,6 +6,8 @@ public class Book {
 
     private int id;
     private String title;
+    private String author;
+    private String publisher;
     private int availableCopies;
     private boolean enabled; 
     private ArrayQueue<User> waitingList; 
@@ -13,9 +15,11 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id, String title, int copies) {
+    public Book(int id, String title, String author, String publisher, int copies) {
         this.id = id;
         this.title = title;
+        this.author = author;
+        this.publisher = publisher;
         this.availableCopies = copies;
         this.waitingList = new ArrayQueue<>();
         this.enabled = true;
@@ -60,6 +64,23 @@ public class Book {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
 
     
 }

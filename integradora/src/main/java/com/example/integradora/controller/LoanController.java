@@ -22,31 +22,31 @@ public class LoanController {
         this.loanService = loanService;
     }
 
-    //Crea Préstamo
+    //se hace el prestamo
     @PostMapping
     public String createLoan(@RequestBody LoanRequest request) {
-        return loanService.createLoan(request);
+        return loanService.processLoanRequest(request);
     }
 
-    //Devuelve el Libro
+    //regresa el Libro
     @PostMapping("/{id}/return")
     public String returnBook(@PathVariable int id) {
         return loanService.returnBook(id);
     }
 
-    //Ver préstamos activos
+    //prestamos activos
     @GetMapping("/active")
     public Loan[] getActiveLoans() {
         return loanService.getActiveLoans();
     }
 
-    //Ver préstamos de un usuario
+    //ver historial de prestamos de un usuario
     @GetMapping("/user/{userId}")
     public Loan[] getUserLoans(@PathVariable int userId) {
         return loanService.getLoansByUserId(userId);
     }
 
-    // --- HISTORIAL (Flujo E) ---
+    // ---Flujo E---
 
     // Ver historial completo
     @GetMapping("/history")

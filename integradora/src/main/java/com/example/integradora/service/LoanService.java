@@ -18,9 +18,7 @@ public class LoanService {
     private final UserService userService;
     
     private SinglyLinkedList<Loan> activeLoans = new SinglyLinkedList<>();
-    
     private ArrayStack<String> historyStack = new ArrayStack<>();
-    
     private AtomicInteger loanIdCounter = new AtomicInteger(1);
 
     public LoanService(LibraryCatalogService bookService, UserService userService) {
@@ -28,7 +26,8 @@ public class LoanService {
         this.userService = userService;
     }
 
-    public String createLoan(LoanRequest request) {
+    //proceso del prestamo
+    public String processLoanRequest(LoanRequest request) {
         Book book = bookService.getBookById(request.getBookId());
         User user = userService.getUserById(request.getUserId());
 
@@ -39,41 +38,38 @@ public class LoanService {
             book.setAvailableCopies(book.getAvailableCopies() - 1);
             
             Loan newLoan = new Loan(loanIdCounter.getAndIncrement(), book.getId(), user.getId());
-            activeLoans.add(newLoan);
-            
-            historyStack.push("LOAN CREATED: User " + user.getName() + " took book " + book.getTitle());
-            
+            activeLoans.add(newLoan); 
+            historyStack.push("Usuario " + user.getName() + " pidio prestado el libro " + book.getTitle());
             return "Préstamo creado para " + user.getName();
             
         } else {
             book.getWaitingList().offer(user);
             
-            historyStack.push("WAITLIST: User " + user.getName() + " queued for " + book.getTitle());
-            
-            return "Sin copias. Usuario " + user.getName() + " agregado a la lista de espera.";
+            historyStack.push("Usuario " + user.getName() + " agregado a la lista de espera del libro " + book.getTitle());
+            return "Sin copias. Haz sido agregado a la lista de espera";
         }
     }
 
+    //proceso del regreso del libros
     public String returnBook(int loanId) {
         Loan loan = findLoanById(loanId);
         
-        if (loan == null) return "Error: Préstamo no encontrado.";
-        if (!loan.isActive()) return "Error: Este préstamo ya fue devuelto.";
+        if (loan == null) return "Error: El prestamo no se encontro.";
+        if (!loan.isActive()) return "Error: El libro ya se ha devuelto.";
 
         loan.setActive(false);
         Book book = bookService.getBookById(loan.getBookId());
         
-        historyStack.push("RETURN: Loan " + loanId + " returned for book " + book.getTitle());
-
+        historyStack.push("Prestamo " + loanId + " regreso el libro " + book.getTitle());
         if (!book.getWaitingList().isEmpty()) {
             User nextUser = (User) book.getWaitingList().poll(); 
             
             Loan newLoan = new Loan(loanIdCounter.getAndIncrement(), book.getId(), nextUser.getId());
             activeLoans.add(newLoan);
             
-            historyStack.push("AUTO-LOAN: Book assigned to waiting user " + nextUser.getName());
+            historyStack.push("El libro se reasigno al siguiente usuario" + nextUser.getName());
             
-            return "Libro devuelto. Se asignó automáticamente a " + nextUser.getName() + " que estaba esperando.";
+            return "Libro devuelto. Se ha asignado al siguiente usuario";
         } else {
             book.setAvailableCopies(book.getAvailableCopies() + 1);
             return "Libro devuelto.";

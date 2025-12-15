@@ -11,10 +11,10 @@ public class UserService {
 
     private SinglyLinkedList<User> userList = new SinglyLinkedList<>();
 
-    public String createUser(UserRequest request) {
+    public String addUser(UserRequest request) {
         User newUser = new User(request.getId(), request.getName());
         userList.add(newUser);
-        return "Usuario registrado: " + newUser.getName();
+        return "Usuario registrado  correctamente: " + newUser.getName();
     }
 
    
