@@ -10,7 +10,7 @@ public class Book {
     private String publisher;
     private int availableCopies;
     private boolean enabled; 
-    private ArrayQueue<User> waitingList; 
+    private ArrayQueue<Integer> waitingList; 
 
     public Book() {
     }
@@ -49,11 +49,11 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 
-    public ArrayQueue<User> getWaitingList() {
+    public ArrayQueue<Integer> getWaitingList() {
         return waitingList;
     }
 
-    public void setWaitingList(ArrayQueue<User> waitingList) {
+    public void setWaitingList(ArrayQueue<Integer> waitingList) {
         this.waitingList = waitingList;
     }
 
