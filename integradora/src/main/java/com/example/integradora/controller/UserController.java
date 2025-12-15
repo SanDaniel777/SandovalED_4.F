@@ -15,25 +15,25 @@ import com.example.integradora.service.UserService;
 @RequestMapping("/api/users")
 public class UserController {
 
-    private final UserService userService;
+    private final UserService usrService;
 
     public UserController(UserService userService) {
-        this.userService = userService;
+        this.usrService = userService;
     }
 
     @PostMapping("/create")
     public String createUser(@RequestBody UserRequest request) {
         System.out.println( request.getId() + ", Nombre: " + request.getName());
-        return userService.addUser(request);
+        return usrService.addUser(request);
     }
 
     @GetMapping("/list")
     public User[] getUsers() {
-        return userService.getAllUsers();
+        return usrService.getAllUsers();
     }
     
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/search")
     public User getUser(@PathVariable int id) {
-        return userService.getUserById(id);
+        return usrService.getUserById(id);
     }
 }

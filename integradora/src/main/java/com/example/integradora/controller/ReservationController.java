@@ -17,11 +17,11 @@ import com.example.integradora.service.UserService;
 public class ReservationController {
 
     private final LibraryCatalogService bookService;
-    private final UserService userService;
+    private final UserService usrService;
 
     public ReservationController(LibraryCatalogService bookService, UserService userService) {
         this.bookService = bookService;
-        this.userService = userService;
+        this.usrService = userService;
     }
 
     @GetMapping("/book/{bookId}")
@@ -36,7 +36,7 @@ public class ReservationController {
     @DeleteMapping
     public String cancelReservation(@RequestParam int userId, @RequestParam int bookId) {
         Book book = bookService.getBookById(bookId);
-        User user = userService.getUserById(userId);
+        User user = usrService.getUserById(userId);
 
         if (book == null) return "Libro no encontrado";
         if (user == null) return "Usuario no encontrado";
@@ -57,7 +57,6 @@ public class ReservationController {
         if (targetUserInQueue != null && book.getWaitingList().remove(targetUserInQueue)) {
              return "Reserva cancelada";
         }
-        
         return "El usuario no se encuentra en la lista de espera.";
     }
 }

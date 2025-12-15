@@ -12,7 +12,8 @@ public class UserService {
     private SinglyLinkedList<User> userList = new SinglyLinkedList<>();
 
     public String addUser(UserRequest request) {
-        User newUser = new User(request.getId(), request.getName());
+        User newUser = new User(request.getId(), 
+        request.getName());
         userList.add(newUser);
         return "Usuario registrado  correctamente: " + newUser.getName();
     }

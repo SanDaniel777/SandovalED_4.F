@@ -37,7 +37,9 @@ public class LoanService {
         if (book.getAvailableCopies() > 0) {
             book.setAvailableCopies(book.getAvailableCopies() - 1);
             
-            Loan newLoan = new Loan(loanIdCounter.getAndIncrement(), book.getId(), user.getId());
+            Loan newLoan = new Loan(loanIdCounter.getAndIncrement(),
+             book.getId(), 
+             user.getId());
             activeLoans.add(newLoan); 
             historyStack.push("Usuario " + user.getName() + " pidio prestado el libro " + book.getTitle());
             return "Préstamo creado para " + user.getName();
@@ -64,7 +66,9 @@ public class LoanService {
         if (!book.getWaitingList().isEmpty()) {
             User nextUser = (User) book.getWaitingList().poll(); 
             
-            Loan newLoan = new Loan(loanIdCounter.getAndIncrement(), book.getId(), nextUser.getId());
+            Loan newLoan = new Loan(loanIdCounter.getAndIncrement(), 
+            book.getId(), 
+            nextUser.getId());
             activeLoans.add(newLoan);
             
             historyStack.push("El libro se reasigno al siguiente usuario" + nextUser.getName());

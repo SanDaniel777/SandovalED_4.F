@@ -12,9 +12,17 @@ public class LoanRequest {
 
     public LoanRequest() {}
 
-    public int getBookId() { return bookId; }
-    public void setBookId(int bookId) { this.bookId = bookId; }
+    public int getBookId() { 
+        return bookId; 
+    }
+    public void setBookId(int bookId) { 
+        this.bookId = bookId; 
+    }
 
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
+    public int getUserId() { 
+        return userId;
+     }
+    public void setUserId(int userId) { 
+        this.userId = userId; 
+    }
 }

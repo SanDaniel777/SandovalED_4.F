@@ -55,7 +55,7 @@ public class LoanController {
     }
 
     // Deshacer última acción (Undo)
-    @DeleteMapping("/history/last")
+    @DeleteMapping("/history/undolast")
     public String undoLastAction() {
         return loanService.undoLastAction();
     }

@@ -22,10 +22,16 @@ public class BookRequest {
     }
 
 
-    public int getId() { return id; }
-    public String getTitle() { return title; }
+    public int getId() { 
+        return id; 
+    }
+    public String getTitle() { 
+        return title; 
+    }
     
-    public int getCopies() { return copies; }
+    public int getCopies() { 
+        return copies; 
+    }
 
     public String getAuthor() {
         return author;

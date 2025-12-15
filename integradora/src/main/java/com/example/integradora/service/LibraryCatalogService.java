@@ -66,7 +66,7 @@ public class LibraryCatalogService {
                 boolean nuevoEstado = !current.data.isEnabled();
                 current.data.setEnabled(nuevoEstado);
 
-                return "Status actualizado a: " + (nuevoEstado ? "ACTIVO" : "INACTIVO");
+                return "Estatus actualizado a: " + (nuevoEstado ? "ACTIVO" : "INACTIVO");
             }
             current = current.next;
         }

@@ -15,15 +15,31 @@ public class Loan {
 
     public Loan() {}
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() { 
+        return id;
+     }
+    public void setId(int id) {
+         this.id = id; 
+        }
 
-    public int getBookId() { return bookId; }
-    public void setBookId(int bookId) { this.bookId = bookId; }
+    public int getBookId() { 
+        return bookId; 
+    }
+    public void setBookId(int bookId) { 
+        this.bookId = bookId; 
+    }
 
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
+    public int getUserId() {
+         return userId;
+         }
+    public void setUserId(int userId) { 
+        this.userId = userId; 
+    }
     
-    public boolean isActive() { return active; }
-    public void setActive(boolean active) { this.active = active; }
+    public boolean isActive() { 
+        return active; 
+    }
+    public void setActive(boolean active) { 
+        this.active = active; 
+    }
 }
